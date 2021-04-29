@@ -35,7 +35,7 @@ bool Button::down() {
 }
 
 bool Button::check() {
-    raw = readPort()
+    raw = readPort();
     if(raw != lastState) {
         lastState = raw;
         if(raw == _state) {
