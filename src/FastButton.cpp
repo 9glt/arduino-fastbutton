@@ -5,7 +5,7 @@ bool FastButton::readPort() {
     return _SFR_IO8(_register) & 1 << _port;
 }
 
-FastButton::Button(int pin, uint8_t _reg, int port, int state) {
+FastButton::FastButton(int pin, uint8_t _reg, int port, int state) {
     _register = _reg;
     _port = port;
     _pin = pin;
@@ -18,7 +18,7 @@ FastButton::Button(int pin, uint8_t _reg, int port, int state) {
 }
 
 
-FastButton::Button(int pin, uint8_t _reg, int port, int state, unsigned long d) {
+FastButton::FastButton(int pin, uint8_t _reg, int port, int state, unsigned long d) {
     _register = _reg;
     _port = port;
     _state = state;
