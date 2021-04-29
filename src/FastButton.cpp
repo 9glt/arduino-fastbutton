@@ -1,11 +1,11 @@
 #include "Arduino.h"
-#include "Button.h"
+#include "FastButton.h"
 
-bool Button::readPort() {
+bool FastButton::readPort() {
     return _SFR_IO8(_register) & 1 << _port;
 }
 
-Button::Button(int pin, uint8_t _reg, int port, int state) {
+FastButton::Button(int pin, uint8_t _reg, int port, int state) {
     _register = _reg;
     _port = port;
     _pin = pin;
@@ -18,7 +18,7 @@ Button::Button(int pin, uint8_t _reg, int port, int state) {
 }
 
 
-Button::Button(int pin, uint8_t _reg, int port, int state, unsigned long d) {
+FastButton::Button(int pin, uint8_t _reg, int port, int state, unsigned long d) {
     _register = _reg;
     _port = port;
     _state = state;
@@ -31,12 +31,12 @@ Button::Button(int pin, uint8_t _reg, int port, int state, unsigned long d) {
     }
 }
 
-bool Button::down() {
-    return Button::check();
+bool FastButton::down() {
+    return FastButton::check();
 }
 
-bool Button::check() {
-    raw = Button::readPort();
+bool FastButton::check() {
+    raw = FastButton::readPort();
     if(raw != lastState) {
         lastState = raw;
         if(raw == _state) {
@@ -46,8 +46,8 @@ bool Button::check() {
     return false;
 }
 
-bool Button::debounce() {
-    raw = Button::readPort();
+bool FastButton::debounce() {
+    raw = FastButton::readPort();
     if(raw != lastState) {
         lasttime = millis();
     }

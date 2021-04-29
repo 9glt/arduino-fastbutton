@@ -1,6 +1,6 @@
 #include "Arduino.h"
 
-class Button {
+class FastButton {
     private:
         uint8_t _register;
         int _port;    
