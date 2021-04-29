@@ -3,7 +3,7 @@
 class Button {
     private:
         uint8_t _register;
-        int _port;
+        int _port;    
         int _pin;
         int type;
         int raw;
@@ -13,10 +13,11 @@ class Button {
         unsigned long lasttime;
         unsigned long delay = 50;
     public:
-    Button(uint8_t, int,int);
-    Button(uint8_t, int,int, unsigned long);
+    
+    Button(int, uint8_t, int,int);
+    Button(int, uint8_t, int,int, unsigned long);
     bool check();
     bool down();
     bool debounce();
-    inline bool readPort();
+    bool readPort();
 };

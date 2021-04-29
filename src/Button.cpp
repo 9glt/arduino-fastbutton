@@ -1,14 +1,14 @@
 #include "Arduino.h"
 #include "Button.h"
 
-inline bool Button::readPort() {
-    return (int)_register & 1 << _port;
+bool Button::readPort() {
+    return _SFR_IO8(_register) & 1 << _port;
 }
 
-Button::Button(uint8_t _reg, int port, int state) {
+Button::Button(int pin, uint8_t _reg, int port, int state) {
     _register = _reg;
     _port = port;
-
+    _pin = pin;
     _state = state;
     if(_state == HIGH) {
         pinMode(_pin, INPUT); // should be INPUT_PULLDOWN in feature
@@ -18,10 +18,11 @@ Button::Button(uint8_t _reg, int port, int state) {
 }
 
 
-Button::Button(uint8_t _reg, int port, int state, unsigned long d) {
+Button::Button(int pin, uint8_t _reg, int port, int state, unsigned long d) {
     _register = _reg;
     _port = port;
     _state = state;
+    _pin = pin;
     delay = d;
     if(_state == HIGH) {
         pinMode(_pin, INPUT); // should be INPUT_PULLDOWN in feature
