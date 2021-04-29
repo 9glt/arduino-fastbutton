@@ -35,7 +35,7 @@ bool Button::down() {
 }
 
 bool Button::check() {
-    raw = readPort();
+    raw = Button::readPort();
     if(raw != lastState) {
         lastState = raw;
         if(raw == _state) {
@@ -46,7 +46,7 @@ bool Button::check() {
 }
 
 bool Button::debounce() {
-    raw = readPort();
+    raw = Button::readPort();
     if(raw != lastState) {
         lasttime = millis();
     }

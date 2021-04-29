@@ -18,5 +18,5 @@ class Button {
     bool check();
     bool down();
     bool debounce();
-    inline bool __attribute__ (always_inline) readPort();
+    inline bool readPort();
 };
