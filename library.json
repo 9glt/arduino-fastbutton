@@ -1,0 +1,17 @@
+{
+    "name": "FastButton",
+    "keywords": "fastbutton",
+    "version": "0.1",
+    "description": "Assign pin to class and simply check if pin state was shanged ONCE until you release button",
+    "authors": {
+        "name": "Mindaugas Žvirblis",
+        "email": "mz@9g.lt",
+        "url": "https://github.com/sponsors/blinkinglight/"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/9glt/arduino-fastbutton.git"
+    },
+    "frameworks": "arduino",
+    "platforms": "*"
+}
