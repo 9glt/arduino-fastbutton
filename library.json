@@ -1,7 +1,7 @@
 {
     "name": "FastButton",
     "keywords": "fastbutton",
-    "version": "0.1",
+    "version": "0.7",
     "description": "Assign pin to class and simply check if pin state was shanged ONCE until you release button",
     "authors": {
         "name": "Mindaugas Žvirblis",
